@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,25 +14,25 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
-	@NotNull
-	@Size(min = 2, max =100)
+	@NotBlank(message = "O campo não pode ser vazio")
+	@Size(min = 2, max =100, message = "O campo nome deve conter no mínimo 2 e no maximo 100 caracteres")
 	private String nome;
 	
-	@NotNull
-	@Size(min = 5, max =100)
+	@NotBlank(message = "O campo não pode ser vazio")
+	@Size(min = 5, max =100, message = "O campo usuario deve conter no mínimo 5 e no maximo 100 caracteres")
 	private String usuario;
 	
-	@NotNull
-	@Size(min = 5, max =100)
+	@NotBlank(message = "O campo não pode ser vazio")
+	@Size(min = 5, max =100, message = "O campo senha deve conter no mínimo 5 e no maximo 100 caracteres")
 	private String senha;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
