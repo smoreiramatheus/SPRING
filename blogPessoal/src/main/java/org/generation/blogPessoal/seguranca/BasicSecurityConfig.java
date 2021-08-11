@@ -33,7 +33,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 			//essa configuração irá liberar alguns endpointers , alguns caminhos 
 			//dentro da camada controller para que seja acessível sem a necessidade de
 			//chave tokken
-	@Override
+	@Override									//Thrrows Exception é uma tratativa de erro
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.POST,"/usuarios/logar").permitAll()
